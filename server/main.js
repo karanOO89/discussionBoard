@@ -1,11 +1,32 @@
 import { Meteor } from 'meteor/meteor';
-import { Messages } from '/imports/api/messages';
+import { Accounts } from 'meteor/accounts-base';
+import { Messages } from '../imports/api/messages';
 
-// function insertLink({ title, url }) {
-//   LinksCollection.insert({title, url, createdAt: new Date()});
-// }
+// const insertMsg = (msg, user) =>
+//   Messages.insert({
+//     text: msg,
+//     userId: user._id,
+//     createdAt: new Date(),
+//   });
+
+
+const SEED_USERNAME = 'meteorite';
+const SEED_PASSWORD = 'password';
+
 
 Meteor.startup(() => {
-  // If the Links collection is empty, add some data.
-  
+  // if (!Accounts.findUserByUsername(SEED_USERNAME)) {
+  //   Accounts.createUser({
+  //     username: SEED_USERNAME,
+  //     password: SEED_PASSWORD,
+  //   });
+  // }
+  // const user = Accounts.findUserByUsername(SEED_USERNAME);
+
+  // if (Messages.find().count() === 0) {
+  //   [
+  //     'Messages',
+  //    ,
+  //   ].forEach(msg => insertMsg(msg, user));
+  // }
 });

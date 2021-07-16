@@ -5,11 +5,12 @@ import { check } from "meteor/check";
 
 export const Messages = new Mongo.Collection("messages");
 Meteor.methods({
-  "messages.insert"(textVal,createdAt) {
+  "messages.insert"(textVal,user) {
     check(textVal, String);
     Messages.insert({
       textVal,
-      createdAt:STRING(new Date())
+      createdAt:new Date(),
+      user: user.emails[0]["address"]
     });
   },
 });
