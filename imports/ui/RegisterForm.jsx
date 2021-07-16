@@ -81,7 +81,7 @@ export const RegisterForm = () => {
           Register
         </button>
       </form>
-      <button onClick={clickHandler}>Login</button>
+      <button onClick={clickHandler}>Login Page</button>
     </Fragment>
   );
 };

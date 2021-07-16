@@ -1,0 +1,26 @@
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+input {
+  height: 25px;
+  width: 25em;
+  padding: 1em;
+  border-radius: 10px;
+  border:grey solid 1px;
+  margin-bottom: 10px;
+
+}
+button{
+  height: 45px;
+  width: 27.2em;
+  border-radius: 10px;
+  border:grey solid 1px;
+  margin-bottom: 10px;
+  background:rgb(5, 30, 77);
+  color:cornsilk
+}

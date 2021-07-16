@@ -3,8 +3,9 @@ import { useState, Fragment } from "react";
 import { useTracker } from "meteor/react-meteor-data";
 import { Messages } from "../api/messages";
 import { Meteor } from "meteor/meteor";
-import { LoginForm } from "./LoginForm";
 import { useHistory } from "react-router-dom";
+import "./Info.scss";
+import { LoginForm } from "./LoginForm";
 
 export const Info = () => {
   const history = useHistory();
@@ -40,47 +41,68 @@ export const Info = () => {
   };
 
   return (
-    <div name="chat">
-      <Fragment>
-        {userLoggedIn()} :
-        <button className="user" onClick={logout}>
-          Logout
-        </button>
-        <form id="chat-form">
-          <p>
-            <textarea
-              rows="5"
-              cols="50"
-              name="text"
-              value={textVal}
-              onChange={(e) => setTextVal(e.target.value)}
-              placeholder="Type here ..."
-            ></textarea>
-          </p>
-          <p>
+    <div className="chat">
+      {user ? (
+        <Fragment>
+          <div className="user">
+          <div style={{color:"darkblue"}}>
+         <b> {userLoggedIn()}</b> 
+            </div>  
             <button
-              onClick={(e) => {
-                clickHandler(e);
-              }}
+              className="user"
+              style={{ height: "45px", width: "7.2em" ,marginLeft:"10px"}}
+              onClick={logout}
             >
-              Submit
+              Logout
             </button>
-          </p>
-        </form>
-        {msgs.length > 0 ? (
-          msgs.map((msg) => {
-            return (
-              // <li key={msg.id}>
-              <div key={msg.id}>
-                {msg.user}({msg.createdAt.toLocaleString()}) : {msg.textVal}
-              </div>
-              // </li>
-            );
-          })
-        ) : (
-          <p>No messages.</p>
-        )}
-      </Fragment>
+          </div>
+          <div className="display">
+            <div className="displayMsg">
+              {msgs.length > 0 ? (
+                msgs.map((msg) => {
+                  return (
+                    <div key={msg.id}>
+                      <div style={{color:"darkblue" }}>
+                     <b> {msg.user } ({msg.createdAt.toLocaleString()}): </b>
+                      </div>
+                      {msg.textVal}
+                    </div>
+                  );
+                })
+              ) : (
+                <p>No messages.</p>
+              )}
+            </div>
+            <form id="chat-form">
+              <p>
+                <textarea 
+                  style={{
+                    resize: "none",
+                  }}
+                  rows="15"
+                  cols="50"
+                  name="text"
+                  value={textVal}
+                  onChange={(e) => setTextVal(e.target.value)}
+                  placeholder="Type here ..."
+                ></textarea>
+              </p>
+              <p>
+                <button
+                  style={{ height: "45px", width: "43.2em" }}
+                  onClick={(e) => {
+                    clickHandler(e);
+                  }}
+                >
+                  Submit
+                </button>
+              </p>
+            </form>
+          </div>
+        </Fragment>
+      ) : (
+        <LoginForm />
+      )}
     </div>
   );
 };

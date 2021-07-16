@@ -1,0 +1,24 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+}
+.displayMsg {
+  overflow-y: scroll ;
+  overflow-wrap: break-word;
+
+  
+  height: 22em;
+  width: 43.2em;
+  
+  margin-right: 1.5em;
+}
+.display {
+  display: flex;
+}
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

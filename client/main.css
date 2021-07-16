@@ -1,4 +1,10 @@
 body {
   padding: 10px;
   font-family: sans-serif;
+  display: flex;
+  background-image: linear-gradient(to right, rgb(245, 98, 98), rgb(4, 109, 65));
+  justify-content: center;
+
+
+  
 }

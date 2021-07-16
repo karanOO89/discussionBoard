@@ -1,8 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import React, { useState, Fragment } from "react";
-import { RegisterForm } from "./RegisterForm";
 import { useHistory } from "react-router-dom";
-
+import "./LoginForm.scss";
 
 export const LoginForm = () => {
   const history = useHistory();
@@ -12,7 +11,7 @@ export const LoginForm = () => {
   const submit = (e) => {
     e.preventDefault();
 
-    Meteor.loginWithPassword(username, password,(err)=>{
+    Meteor.loginWithPassword(username, password, (err) => {
       if (err) {
         alert(err.message);
       } else {
@@ -20,37 +19,37 @@ export const LoginForm = () => {
       }
     });
   };
-  const clickHandler = () =>{
-    history.push("/register")
-  }
+  const clickHandler = () => {
+    history.push("/register");
+  };
   return (
-    <Fragment>
+    <Fragment className="login">
       <form onSubmit={submit} className="login-form">
-        <label htmlFor="username">Username</label>
+        <div>
+          {/* <label htmlFor="username">Username</label> */}
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
 
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          // value="meteorite"
-          required
-          onChange={(e) => setUsername(e.target.value)}
-        />
+          {/* <label htmlFor="password">Password</label> */}
 
-        <label htmlFor="password">Password</label>
-
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          // value="password"
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <button type="submit">Log In</button>
       </form>
-      <button onClick={clickHandler}>Register</button>
+      <button onClick={clickHandler}>Registration Page</button>
     </Fragment>
   );
 };
