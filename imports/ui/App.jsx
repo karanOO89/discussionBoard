@@ -6,19 +6,13 @@ import { RegisterForm } from "./RegisterForm.jsx";
 
 export const App = () => (
   <div>
-    <h1>Diccussion Board!</h1>
+    <h1>Discussion Board!</h1>
 
     <Router>
       <Switch>
-        <Route path="/login">
-          <LoginForm />
-        </Route>
-        <Route path="/register">
-          <RegisterForm />
-        </Route>
-        <Route path="/">
-          <Info />
-        </Route>
+        <Route path="/register" component={RegisterForm} />
+        <Route path="/info" component={Info} />
+        <Route path="/" exact component={LoginForm} />
       </Switch>
     </Router>
   </div>

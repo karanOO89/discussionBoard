@@ -19,7 +19,7 @@ export const Info = () => {
       if (err) {
         alert(err.message);
       } else {
-        history.push("/login");
+        history.push("/");
       }
     });
 
@@ -33,54 +33,54 @@ export const Info = () => {
       }
     });
   };
-  
+  const userLoggedIn = () => {
+    if (user && "emails" in user) {
+      return user.emails[0]["address"];
+    }
+  };
 
   return (
     <div name="chat">
-      {user ? (
-        <Fragment>
-          {user.emails[0]["address"]} :
-          <button className="user" onClick={logout}>
-            Logout
-          </button>
-          <form id="chat-form">
-            <p>
-              <textarea
-                rows="5"
-                cols="50"
-                name="text"
-                value={textVal}
-                onChange={(e) => setTextVal(e.target.value)}
-                placeholder="Type here ..."
-              ></textarea>
-            </p>
-            <p>
-              <button
-                onClick={(e) => {
-                  clickHandler(e);
-                }}
-              >
-                Submit
-              </button>
-            </p>
-          </form>
-          {msgs.length > 0 ? (
-            msgs.map((msg) => {
-              return (
-                // <li key={msg.id}>
-                <div key={msg.id}>
-                  {msg.user}({msg.createdAt.toLocaleString()}) : {msg.textVal}
-                </div>
-                // </li>
-              );
-            })
-          ) : (
-            <p>No messages.</p>
-          )}
-        </Fragment>
-      ) : (
-        <LoginForm />
-      )}
+      <Fragment>
+        {userLoggedIn()} :
+        <button className="user" onClick={logout}>
+          Logout
+        </button>
+        <form id="chat-form">
+          <p>
+            <textarea
+              rows="5"
+              cols="50"
+              name="text"
+              value={textVal}
+              onChange={(e) => setTextVal(e.target.value)}
+              placeholder="Type here ..."
+            ></textarea>
+          </p>
+          <p>
+            <button
+              onClick={(e) => {
+                clickHandler(e);
+              }}
+            >
+              Submit
+            </button>
+          </p>
+        </form>
+        {msgs.length > 0 ? (
+          msgs.map((msg) => {
+            return (
+              // <li key={msg.id}>
+              <div key={msg.id}>
+                {msg.user}({msg.createdAt.toLocaleString()}) : {msg.textVal}
+              </div>
+              // </li>
+            );
+          })
+        ) : (
+          <p>No messages.</p>
+        )}
+      </Fragment>
     </div>
   );
 };

@@ -5,34 +5,40 @@ import { Register } from "../api/register";
 import { useTracker } from "meteor/react-meteor-data";
 import { Accounts } from "meteor/accounts-base";
 
-
 export const RegisterForm = () => {
   const history = useHistory();
-  // const user = useTracker(() => {
-  //   return Register.find().fetch();
-  // });
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const user = useTracker(() => Meteor.user());
 
   const submit = (e) => {
     e.preventDefault();
     if (password === confirmPassword && email && password) {
-      Accounts.createUser({
-        email: email,
-        password: password
-      });
-    history.push("/");
-
+      Accounts.createUser(
+        {
+          email: email,
+          password: password,
+        },
+        (err) => {
+          if (err) {
+            alert(err.message);
+          } else {
+            if (user) {
+              history.push("/info");
+            } else {
+              alert("user already exists");
+            }
+          }
+        }
+      );
     } else {
       alert("password did not match");
     }
   };
   const clickHandler = () => {
-    history.push("/login");
+    history.push("/");
   };
-  // console.log(user);
   return (
     <Fragment>
       <form className="login-form">

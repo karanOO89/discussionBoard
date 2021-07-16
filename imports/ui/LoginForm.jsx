@@ -16,7 +16,7 @@ export const LoginForm = () => {
       if (err) {
         alert(err.message);
       } else {
-        history.push("/");
+        history.push("/info");
       }
     });
   };

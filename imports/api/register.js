@@ -1,14 +1,22 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
-import { check } from "meteor/check";
 import { Accounts } from "meteor/accounts-base";
+import { check } from "meteor/check";
+
 
 export const Register = new Mongo.Collection("register");
 Meteor.methods({
-  "register.insert"(email, password) {
-     Accounts.createUser({
-      email: email,
-      password: password
-  });
-  },
+  // "register.validation"(email) {
+    // if (!Accounts.findUserByUsername(email)) {
+      
+      // console.log(email);
+
+      // Accounts.findUserByUsername(email)
+      
+
+    // }
+   
+
+  // },
 });
+
