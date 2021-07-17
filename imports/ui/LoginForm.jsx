@@ -23,7 +23,7 @@ export const LoginForm = () => {
     history.push("/register");
   };
   return (
-    <Fragment className="login">
+    <div>
       <form onSubmit={submit} className="login-form">
         <div>
           {/* <label htmlFor="username">Username</label> */}
@@ -36,7 +36,6 @@ export const LoginForm = () => {
           />
         </div>
         <div>
-
           {/* <label htmlFor="password">Password</label> */}
 
           <input
@@ -50,6 +49,6 @@ export const LoginForm = () => {
         <button type="submit">Log In</button>
       </form>
       <button onClick={clickHandler}>Registration Page</button>
-    </Fragment>
+    </div>
   );
 };
