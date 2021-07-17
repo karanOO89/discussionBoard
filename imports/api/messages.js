@@ -5,7 +5,6 @@ export const Messages = new Mongo.Collection("messages");
 Meteor.methods({
   "messages.insert"(textVal,user) {
     check(textVal, String);
-    console.log(textVal)
     Messages.insert({
       textVal,
       createdAt:new Date(),
