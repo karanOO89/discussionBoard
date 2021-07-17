@@ -4,5 +4,10 @@ import { render } from "react-dom";
 import App from "../imports/ui/App";
 
 Meteor.startup(() => {
-   render(<App />, document.getElementById("react-target"));
+  render(
+    <React.StrictMode>
+      <App />
+      </React.StrictMode>, document.getElementById("react-target")
+   
+  );
 });
