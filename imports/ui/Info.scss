@@ -3,13 +3,10 @@
   flex-direction: column;
 }
 .displayMsg {
-  overflow-y: scroll ;
+  overflow-y: scroll;
   overflow-wrap: break-word;
-
-  
   height: 22em;
-  width: 43.2em;
-  
+  width: 26em;
   margin-right: 1.5em;
 }
 .display {
@@ -19,6 +16,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0.5em;
 }
-
-

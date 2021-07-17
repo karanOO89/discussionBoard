@@ -7,7 +7,7 @@ Meteor.startup(() => {
   render(
     <React.StrictMode>
       <App />
-      </React.StrictMode>, document.getElementById("react-target")
-   
+    </React.StrictMode>,
+    document.getElementById("react-target")
   );
 });

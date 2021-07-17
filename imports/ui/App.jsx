@@ -10,7 +10,6 @@ const App = () => {
     <Router>
       <div className="app">
         <h1>Discussion Board!</h1>
-
         <Switch>
           <Route path="/register" component={RegisterForm} />
           <Route path="/info" component={Info} />

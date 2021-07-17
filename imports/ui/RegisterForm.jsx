@@ -1,7 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import React, { useState, Fragment } from "react";
 import { useHistory } from "react-router-dom";
-import { Register } from "../api/register";
 import { useTracker } from "meteor/react-meteor-data";
 import { Accounts } from "meteor/accounts-base";
 
@@ -33,7 +32,7 @@ export const RegisterForm = () => {
         }
       );
     } else {
-      alert("password did not match");
+      alert("Please enter valid info!");
     }
   };
   const clickHandler = () => {

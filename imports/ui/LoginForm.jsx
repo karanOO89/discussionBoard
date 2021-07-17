@@ -1,5 +1,5 @@
 import { Meteor } from "meteor/meteor";
-import React, { useState, Fragment } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.scss";
 
@@ -26,7 +26,6 @@ export const LoginForm = () => {
     <div>
       <form onSubmit={submit} className="login-form">
         <div>
-          {/* <label htmlFor="username">Username</label> */}
           <input
             type="text"
             placeholder="Username"
@@ -36,8 +35,6 @@ export const LoginForm = () => {
           />
         </div>
         <div>
-          {/* <label htmlFor="password">Password</label> */}
-
           <input
             type="password"
             placeholder="Password"

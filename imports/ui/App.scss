@@ -1,14 +1,12 @@
-.app{
-  background: white;
-  padding:1em;
+.app {
+  background: rgba(250, 249, 249, 0.924);
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.253);
+  padding: 1em;
   border-radius: 15px;
-  margin-top: 7em;
- height: 30em;
-  min-width: 75em;
+  height: 30em;
+  width: 50em;
   display: flex;
   flex-direction: column;
   align-items: center;
-justify-content: center;
-  
-
+  justify-content: center;
 }

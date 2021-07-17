@@ -45,12 +45,17 @@ export const Info = () => {
       {user ? (
         <Fragment>
           <div className="user">
-          <div style={{color:"darkblue"}}>
-         <b> {userLoggedIn()}</b> 
-            </div>  
+            <p style={{ color: "brown" }}>
+              <b>
+                <u> LoggedIn as: </u>{" "}
+              </b>
+            </p>
+            <div style={{ color: "darkblue" }}>
+              <b> {userLoggedIn()}</b>
+            </div>
             <button
               className="user"
-              style={{ height: "45px", width: "7.2em" ,marginLeft:"10px"}}
+              style={{ height: "45px", width: "7.2em", marginLeft: "10px" }}
               onClick={logout}
             >
               Logout
@@ -62,8 +67,11 @@ export const Info = () => {
                 msgs.map((msg) => {
                   return (
                     <div key={msg.id}>
-                      <div style={{color:"darkblue" }}>
-                     <b> {msg.user } ({msg.createdAt.toLocaleString()}): </b>
+                      <div style={{ color: "darkblue" }}>
+                        <b>
+                          {" "}
+                          {msg.user} ({msg.createdAt.toLocaleString()}):{" "}
+                        </b>
                       </div>
                       {msg.textVal}
                     </div>
@@ -75,12 +83,12 @@ export const Info = () => {
             </div>
             <form id="chat-form">
               <p>
-                <textarea 
+                <textarea
                   style={{
                     resize: "none",
                   }}
                   rows="15"
-                  cols="50"
+                  cols="40"
                   name="text"
                   value={textVal}
                   onChange={(e) => setTextVal(e.target.value)}
@@ -89,7 +97,7 @@ export const Info = () => {
               </p>
               <p>
                 <button
-                  style={{ height: "45px", width: "43.2em" }}
+                  style={{ height: "75px", width: "35em" }}
                   onClick={(e) => {
                     clickHandler(e);
                   }}

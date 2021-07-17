@@ -1,0 +1,35 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    rgb(245, 120, 98),
+    rgba(18, 200, 161, 0.945),
+    rgba(4, 114, 90, 0.945),
+    rgb(53, 143, 179),
+    rgb(62, 10, 131),
+    rgb(129, 21, 2),
+    rgb(236, 49, 16)
+  );
+}
+body {
+  padding: 10px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient);
+  justify-self: center;
+  padding: 7.2em;
+  align-items: center;
+  background-size: 450%;
+  animation: change-animation 150s infinite alternate;
+}
+@keyframes change-animation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
