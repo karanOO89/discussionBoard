@@ -5,16 +5,19 @@ import { LoginForm } from "./LoginForm.jsx";
 import { RegisterForm } from "./RegisterForm.jsx";
 import "./App.scss";
 
-export const App = () => (
-  <div className="app">
-    <h1>Discussion Board!</h1>
-
+const App = () => {
+  return (
     <Router>
-      <Switch>
-        <Route path="/register" component={RegisterForm} />
-        <Route path="/info" component={Info} />
-        <Route path="/" exact component={LoginForm} />
-      </Switch>
+      <div className="app">
+        <h1>Discussion Board!</h1>
+
+        <Switch>
+          <Route path="/register" component={RegisterForm} />
+          <Route path="/info" component={Info} />
+          <Route path="/" exact component={LoginForm} />
+        </Switch>
+      </div>
     </Router>
-  </div>
-);
+  );
+};
+export default App;
