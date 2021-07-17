@@ -11,13 +11,12 @@
   );
 }
 body {
-  padding: 10px;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
   background: var(--gradient);
   justify-self: center;
-  padding: 7.2em;
+  padding: 5em;
   align-items: center;
   background-size: 450%;
   animation: change-animation 150s infinite alternate;
