@@ -9,7 +9,6 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const user = useTracker(() => Meteor.user());
 
   const submit = (e) => {
     e.preventDefault();
@@ -23,11 +22,14 @@ export const RegisterForm = () => {
           if (err) {
             alert(err.message);
           } else {
-            if (user) {
-              history.push("/info");
-            } else {
-              alert("user already exists");
-            }
+            Meteor.loginWithPassword(email, password, (err) => {
+              if (err) {
+                alert(err.message);
+              } else {
+                history.push("/info");
+              }
+            });
+          
           }
         }
       );

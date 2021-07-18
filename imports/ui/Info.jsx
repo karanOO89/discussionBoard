@@ -9,7 +9,7 @@ import { LoginForm } from "./LoginForm";
 
 export const Info = () => {
   const history = useHistory();
-
+  
   const [textVal, setTextVal] = useState();
   const msgs = useTracker(() => {
     return Messages.find().fetch();
@@ -26,6 +26,7 @@ export const Info = () => {
 
   const clickHandler = (e) => {
     e.preventDefault();
+
     Meteor.call("messages.insert", textVal, user, (err) => {
       if (err) {
         alert(err.message);
@@ -66,7 +67,7 @@ export const Info = () => {
               {msgs.length > 0 ? (
                 msgs.map((msg) => {
                   return (
-                    <div key={msg.id}>
+                    <div key={msg.id} >
                       <div style={{ color: "darkblue" }}>
                         <b>
                           {" "}
@@ -88,7 +89,7 @@ export const Info = () => {
                     resize: "none",
                   }}
                   rows="15"
-                  cols="40"
+                  cols="48"
                   name="text"
                   value={textVal}
                   onChange={(e) => setTextVal(e.target.value)}
@@ -97,7 +98,7 @@ export const Info = () => {
               </p>
               <p>
                 <button
-                  style={{ height: "75px", width: "35em" }}
+                  style={{ height: "75px", width: "27.9em" }}
                   onClick={(e) => {
                     clickHandler(e);
                   }}
