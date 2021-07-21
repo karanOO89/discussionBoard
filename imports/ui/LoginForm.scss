@@ -24,3 +24,15 @@ button{
   background:rgb(5, 30, 77);
   color:cornsilk
 }
+button:hover {
+  background: #023636;
+}
+
+button:active {
+  background: #43928c;
+  transform: translateY(2px);
+}
+.registerBtns{
+  display: flex;
+  flex-direction: column;
+}
